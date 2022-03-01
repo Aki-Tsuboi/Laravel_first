@@ -2,76 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-global $head , $style , $body , $end;
-    $head = '<html><head>';
-    $style = <<<EOF
-    <style>
-    body {font-size : 16pt; color:#999; }
-    h1{font-size :100pt ; text-align : right ; color:#eee;
-        margin:-40px 0px -50px 0px; }
-    </style>
-    EOF;
-    $body = '</head></body>';
-    $end = '</body></html>';
 
-    function tag($tag,$txt){
-        return "<{$tag}>" . $txt . "<{$tag}>"-
-        
-    };
+// リクエスト/レスポンス
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+
+
+function tag($tag,$txt){
+    return "<{$tag}>" . $txt . "</{$tag}>";
+}
+
 class HelloController extends Controller
 {
 
-        
     
     //
     public function index(){
 
-        global $head , $style , $body , $end
-
-
-        $html = $heaed . tag('title',hello/Index) . $style . $body
-        .tag('h1','index') .tag('p','This is Index page.')
-        .'<a href="/hello/other">go to Other page </a>'
-        .$end;
-
-        return $html;
+        $data = ['msg' => 'これはコントローラから渡されたメッセージです。'];
+        return view('hello.index',$data);
     }
-    public function other(){
-        global $head , $style , $body , $end;
 
-        $html = $head . tag('title','Hello/Other').$style.$body
-        .$tag('h1','other').tag('p','this is Other page')
-        .$end;
-        return $html;
-    }
-            return <<<EOF
-        <html>
-        <head>
-        <title>Hello/index</title>
-        <style>
-        body {font-size : 16pt; color:#999; }
-        h1{font-size :100pt ; text-align : right ; color:#eee;
-            margin:-40px 0px -50px 0px; }
-        </style>
-
-        </head>
-        <body>
-            <h1>index</h1>
-            
-            <p>これは、Helloコントローラのindexアクションです。</p>
-
-            <ul>
-                <li>{$id}</li>
-                <li>pass : {$pass}</li>
-            </ul>
-        </body>
-        </html>
-
-        EOF;
-
-    }
+}
 
         
 
-}
+

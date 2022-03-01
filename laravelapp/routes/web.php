@@ -15,24 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// 1日目 2/28 
+Route::get('helloy',function(){
+    return '<html><body><h1>hello</h1><p>This is sample page.</p></body><html>';
+});
+
+
+Route::get('helloC/{id?}/{pass?}','HelloController@index');
+
+// 2日目 3/01 実習問題2_1
+Route::get('jissyu2','JissyuController@index');
+
+// 2日目 46P
+
+/* Route::get('hello','HelloController@index'); */
+/* 
+Route::get('hello','HelloController@index');
+Route::get('hello/other','helloController@other');
+
 Route::get('hello/{msg?}',function($msg= 'no message.'){
 
-$html = <<<EOF
-<html>
-<head>
-<title>Hello</title>
+    $jk = <<<EOF
 
-global $head , $style , $body , $end;
-$head = '<html><head>';
-$style = <<<EOF
-<style>
-body {font-size : 16pt; color:#999; }
-h1{font-size :100pt ; text-align : right ; color:#eee;
-    margin:-40px 0px -50px 0px; }
-</style>
-EOF;
-$body = '</head></body>';
-$end = '</body></html>';
 </head>
 <body>
     <h1>Hello</h1>
@@ -47,11 +52,6 @@ return $html;
 
 
 });
+ */
 
-
-Route::get('helloy',function(){
-    return '<html><body><h1>hello</h1><p>This is sample page.</p></body><html>';
-});
-
-
-Route::get('helloC/{id?}/{pass?}','HelloController@index');
+Route::get('hello','HelloController@index');
