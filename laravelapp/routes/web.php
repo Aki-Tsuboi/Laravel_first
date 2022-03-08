@@ -55,3 +55,13 @@ return $html;
  */
 
 Route::get('hello','HelloController@index');
+
+Route::post('hello','HelloController@post');
+
+Route::get('Jissyu3','Jissyu3_1controller@index');
+
+Route::post('Jissyu3','Jissyu3_1controller@post');
+
+Route::get('Jissyu4','Jissyu3_2controller@index');
+
+Route::post('Jissyu4','Jissyu3_2controller@post');

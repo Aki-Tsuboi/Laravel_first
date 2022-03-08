@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        // リスト3-36追加
+        App\Providers\HelloServiceProvider::Class
+
     ],
 
     /*

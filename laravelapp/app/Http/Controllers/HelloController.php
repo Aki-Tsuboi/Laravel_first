@@ -17,11 +17,17 @@ class HelloController extends Controller
 {
 
     
-    //
-    public function index(){
+    // idをつけるときに引数を渡してあげるとそれが$id に入る 
+    public function index(Request $request){
 
-        $data = ['msg' => 'これはコントローラから渡されたメッセージです。'];
-        return view('hello.index',$data);
+        // この連想配列のキー部分を テンプレートで参照するので 使いたいデータはここのような連想配列を使おう。 例) data = ['msg' => 'こんにちは']; 
+        
+        return view('hello.index',['message' => 'Hello!']);
+    }
+
+    public function post(Request $request){
+
+        return view('hello.index',['msg'=>$request->msg]);
     }
 
 }
